@@ -1,0 +1,27 @@
+<mujoco model="scene">
+  <statistic center="0 0 0.5" extent="1.5"/>
+
+  <!-- MJX Simulation Options -->
+  <option timestep="0.005" iterations="5" ls_iterations="8" integrator="implicitfast">
+    <flag eulerdamp="disable"/>
+  </option>
+
+  <visual>
+    <headlight diffuse=".8 .8 .8" ambient=".2 .2 .2" specular="1 1 1"/>
+    <rgba force="1 0 0 1"/>
+    <global azimuth="-40" elevation="-30"/>
+  </visual>
+
+  <asset>
+    <texture name="tex_checker" type="2d" builtin="checker" rgb1="0.8 0.8 0.8" rgb2="0.9 0.9 0.9" width="300" height="300"/>
+    <material name="mat_checker" texture="tex_checker"/>
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="800" height="800"/>
+  </asset>
+
+  <worldbody>
+    <light directional="true" pos="0 0 4" dir="0 0 -1" castshadow="false"/>
+    <geom name="floor" type="plane" size="5 5 0.1" material="mat_checker" 
+      pos="0 0 0" quat="1 0 0 0" contype="1" conaffinity="1"/>
+      
+  </worldbody>
+</mujoco>

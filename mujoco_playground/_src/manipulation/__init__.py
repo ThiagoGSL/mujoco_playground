@@ -24,6 +24,7 @@ from mujoco_playground._src.manipulation.aloha import handover as aloha_handover
 from mujoco_playground._src.manipulation.aloha import single_peg_insertion as aloha_peg
 from mujoco_playground._src.manipulation.franka_emika_panda import open_cabinet as panda_open_cabinet
 from mujoco_playground._src.manipulation.franka_emika_panda import pick as panda_pick
+from mujoco_playground._src.manipulation.ur3 import pick as ur3_pick
 from mujoco_playground._src.manipulation.franka_emika_panda import pick_cartesian as panda_pick_cartesian
 from mujoco_playground._src.manipulation.franka_emika_panda_robotiq import push_cube as robotiq_push_cube
 from mujoco_playground._src.manipulation.leap_hand import reorient as leap_cube_reorient
@@ -40,6 +41,7 @@ _envs = {
     "PandaRobotiqPushCube": robotiq_push_cube.PandaRobotiqPushCube,
     "LeapCubeReorient": leap_cube_reorient.CubeReorient,
     "LeapCubeRotateZAxis": leap_rotate_z.CubeRotateZAxis,
+    "Ur3PickCube": ur3_pick.Ur3PickCube
 }
 
 _cfgs = {
@@ -52,6 +54,7 @@ _cfgs = {
     "PandaRobotiqPushCube": robotiq_push_cube.default_config,
     "LeapCubeReorient": leap_cube_reorient.default_config,
     "LeapCubeRotateZAxis": leap_rotate_z.default_config,
+    "Ur3PickCube": ur3_pick.default_config
 }
 
 _randomizer = {

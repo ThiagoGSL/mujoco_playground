@@ -1,0 +1,42 @@
+<mujoco model="ur3_cube_task">
+  
+  <!-- 1. Include the Scene -->
+  <include file="scene.xml"/>
+  
+  <!-- 2. Include the Robot -->
+  <include file="ur3_robot.xml"/>
+
+  <asset>
+     <material name="mat_red_cube" rgba="1 0 0 1"/>
+  </asset>
+
+  <worldbody>
+    <camera name="cam0" pos="0 -1.0 0.75" mode="targetbody" target="object_box"/>
+
+    <!-- Define box and target zones -->
+    <site name="zone_start_vis" pos="0 -0.4 0.01" size="0.15 0.1 0.001" type="box" rgba="0 1 0 0.3" group="2"/>
+
+    <site name="zone_target_vis" pos="0.4 -0.4 0.01" size="0.15 0.1 0.001" type="box" rgba="0 0 1 0.3" group="2"/>
+
+
+    <!-- 3. Define Task Objects -->
+    <body name="object_box" pos="0 -0.4 0.4"> 
+      <freejoint name="box_joint"/>
+      <geom name="box_geom" type="box" 
+            size="0.025 0.025 0.025" material="mat_red_cube" 
+            mass="0.1" contype="1" conaffinity="1"
+            friction="1.5 0.005 0.0001"/>
+    </body>
+
+    <!-- 4. Define Mocap Helper -->
+    <body name="mocap_target" pos="0.4 -0.4 0.5" mocap="true">
+        <geom type="sphere" size="0.02" rgba="0 1 1 0.5" contype="0" conaffinity="0"/>
+    </body>
+  </worldbody>
+
+  <!-- 5. Define Initial State -->
+  <keyframe>
+    <key name="home" qpos="-1.57 -1.57 1.57 -1.57 -1.57 0 0 0.5 0 0.4 1 0 0 0" ctrl="-1.57 -1.57 1.57 -1.57 -1.57 0 0"/>
+  </keyframe>
+
+</mujoco>
